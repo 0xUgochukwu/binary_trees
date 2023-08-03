@@ -10,16 +10,28 @@
  */
 binary_tree_t *binary_tree_uncle(binary_tree_t *node)
 {
-	binary_tree_t *parent;
-
-	if (!node || !node->parent || !node->parent->parent)
+	if (!node || !node->parent)
 		return (NULL);
 
-	parent = node->parent;
+	return (binary_tree_sibling(node->parent));
+}
 
 
-	if (parent->parent->left == parent)
-		return (parent->right);
+/**
+ * binary_tree_sibling - finds the sibling of a node
+ * @node: pointer to the node to find the sibling
+ * Return: pointer to the sibling node
+ *	If node is NULL or the parent is NULL, return NULL
+ *	If node has no sibling, return NULL
+ *
+ */
+binary_tree_t *binary_tree_sibling(binary_tree_t *node)
+{
+	if (!node || !node->parent)
+		return (NULL);
+
+	if (node->parent->right == node)
+		return (node->parent->left);
 	else
-		return (parent->left);
+		return (node->parent->right);
 }
