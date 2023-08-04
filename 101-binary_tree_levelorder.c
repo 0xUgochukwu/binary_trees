@@ -33,6 +33,7 @@ size_t _height(const binary_tree_t *tree)
  * btlo_helper - helps recursively traverse a binary tree
  * @tree: pointer to the root node of the tree to traverse
  * @func: pointer to a function to call for each node
+ * @level: the level of the tree to call func upon
  */
 void btlo_helper(const binary_tree_t *tree, void (*func)(int), size_t level)
 {
@@ -59,7 +60,7 @@ void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int))
 
 	if (!tree || !func)
 		return;
-	
+
 	max = _height(tree) + 1;
 
 	for (i = 0; i < max; i++)
