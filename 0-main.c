@@ -2,7 +2,7 @@
 #include "binary_trees.h"
 
 /**
- * main - Entry point if the program
+ * main - Entry point of the program
  *
  * Return: Always 0 (Success)
  */
